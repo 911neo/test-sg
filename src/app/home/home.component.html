@@ -1,0 +1,26 @@
+<div class="todoDiv">
+  <div class="textDiv">
+    <h2>Todo List</h2>
+      <input [(ngModel)]="stextEntered" class="inputText" type="text" placeholder="Enter Todo">
+      <button class="mainAddButton" (click)="addNew()"> Add</button>
+  </div>
+  <div class="listDiv">
+      <ul>
+          
+          <li *ngFor="let list of alist" [ngClass]="list.done ? 'primary' : 'secondary'"> 
+
+            <label class="container">
+                <input (click)="done(list)" type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <div class="labelDiv" spellcheck="false" contenteditable = true>
+                  {{list.name}}
+              </div>              
+            <div class="buttonsDiv">
+              <button (click)="edit(list,list.name)" class="DoneButton"> Save</button>
+              <button (click)="delete(list.name)" class="deleteButton">Delete</button>
+            </div>
+          </li>
+        </ul> 
+  </div>
+</div>
